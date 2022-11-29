@@ -8,8 +8,7 @@ import {
   ITEM_PAGE_LOADED,
   ITEM_PAGE_UNLOADED,
 } from "../../constants/actionTypes";
-
-const path = `https://iili.io/HKsAsVI.png`
+import pic from "./placeholder.png";
 
 const mapStateToProps = (state) => ({
   ...state.item,
@@ -52,7 +51,7 @@ class Item extends React.Component {
           <div className="row bg-white p-4">
             <div className="col-6">
               <img
-                src={this.props.item.image || path}
+                src={this.props.item.image || pic}
                 alt={this.props.item.title}
                 className="item-img"
                 style={{ height: "500px", width: "100%", borderRadius: "6px" }}
