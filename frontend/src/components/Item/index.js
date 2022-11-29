@@ -9,6 +9,10 @@ import {
   ITEM_PAGE_UNLOADED,
 } from "../../constants/actionTypes";
 
+const path = `https://iili.io/HKsAsVI.png`
+// const path = `https://images.unsplash.com/photo-1669570094762-828f3dfaf675?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`
+// const placeHolderPath = `../../public/placeholder.png`
+
 const mapStateToProps = (state) => ({
   ...state.item,
   currentUser: state.common.currentUser,
@@ -50,7 +54,7 @@ class Item extends React.Component {
           <div className="row bg-white p-4">
             <div className="col-6">
               <img
-                src={this.props.item.image}
+                src={this.props.item.image || path}
                 alt={this.props.item.title}
                 className="item-img"
                 style={{ height: "500px", width: "100%", borderRadius: "6px" }}
