@@ -10,8 +10,6 @@ import {
 } from "../../constants/actionTypes";
 
 const path = `https://iili.io/HKsAsVI.png`
-// const path = `https://images.unsplash.com/photo-1669570094762-828f3dfaf675?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`
-// const placeHolderPath = `../../public/placeholder.png`
 
 const mapStateToProps = (state) => ({
   ...state.item,
