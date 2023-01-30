@@ -15,12 +15,13 @@ spec:
     metadata:
       labels:
         app: {{ .Values.backend.serviceName }}
+        date: {{ now | unixEpoch | quote }}
     spec:
       containers:
         - args:
             - sh
             - -c
-            - yarn start
+            - "yarn seeds && yarn start"
           env:
             - name: MONGODB_URI
               value: "{{ .Values.database.connectionProtocol }}{{ .Values.database.serviceName }}:{{ .Values.database.servicePort }}/{{ .Values.database.databaseName }}"
