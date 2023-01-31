@@ -16,9 +16,9 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <ThemeProvider theme={theme}>
-        <Switch>
-          <Route path="/" component={App} />
-        </Switch>
+          <Switch>
+            <Route path="/" component={App} />
+          </Switch>
       </ThemeProvider>
     </ConnectedRouter>
   </Provider>,
