@@ -9,6 +9,8 @@ import {
 } from "../../constants/actionTypes";
 import { getItemAndComments } from "./utils/ItemFetcher";
 import { useParams } from "react-router-dom";
+import placeholderImage from "./utils/placeholder.png"
+
 
 const mapStateToProps = (state) => ({
   ...state.item,
@@ -48,7 +50,7 @@ const Item = (props) => {
           <div className="row bg-white p-4">
             <div className="col-6">
               <img
-                src={props.item.image}
+                src={props.item.image || placeholderImage}
                 alt={props.item.title}
                 className="item-img"
                 style={{ height: "500px", width: "100%", borderRadius: "6px" }}
