@@ -5,6 +5,12 @@ var Comment = mongoose.model("Comment");
 var User = mongoose.model("User");
 var auth = require("../auth");
 const { sendEvent } = require("../../lib/event");
+const path = require('path')
+const express = require("express")
+const fs = require("fs")
+
+const publicDirectory = path.join(__dirname, './');
+router.use(express.static(publicDirectory));
 
 // Preload item objects on routes with ':item'
 router.param("item", function(req, res, next, slug) {
@@ -144,7 +150,14 @@ router.post("/", auth.required, function(req, res, next) {
         return res.sendStatus(401);
       }
 
-      var item = new Item(req.body.item);
+      var itemData = req.body.item;
+      if (!itemData.image) {
+        const placeholderImagePath = path.join(__dirname, 'placeholder.png');
+        const placeholderImageBuffer = fs.readFileSync(placeholderImagePath);
+        itemData.image = `data:image/png;base64,${placeholderImageBuffer.toString('base64')}`;
+      }
+
+      var item = new Item(itemData);
 
       item.seller = user;
 
